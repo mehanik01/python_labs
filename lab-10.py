@@ -1,7 +1,7 @@
 import json
 
 def z1():
-    with open('products.json', 'r', encoding='utf-8') as f: # "r"- файл для чтения
+    with open('123.json', 'r', encoding='utf-8') as f: # "r"- файл для чтения
         file1 = json.load(f) # загрузка содержимого файла в словарь
 
     for product in file1['products']:
@@ -13,10 +13,10 @@ def z1():
         else:
             print("Нет в наличии!")
         print()
-print(z1())
+z1()
 
 def z2():
-    with open('products.json', encoding='utf-8') as f:
+    with open('123.json', encoding='utf-8') as f:
         file2 = json.load(f)
 
     name = input("Введите название продукта: ")
@@ -26,11 +26,11 @@ def z2():
     newspisok = {"name": name, "price": price, "available": available, "weight": weight}
     file2["products"].append(newspisok) #добавление словаря в начальный список
 
-    with open('products.json', 'w', encoding='utf-8') as f:
+    with open('123.json', 'w', encoding='utf-8') as f:
         json.dump(file2, f)  #добавление нового списка в начальный файл
 
     print("Новый список:")
-    with open('products.json') as f:
+    with open('123.json') as f:
         data = json.load(f)
         for product in data['products']:
             print(f"Название: {product['name']}")
@@ -41,7 +41,7 @@ def z2():
             else:
                 print("Нет в наличии!")
             print()
-print(z2())
+z2()
 
 def z3():
     with open('en-ru.txt', 'r', encoding='utf-8') as f:
@@ -58,4 +58,4 @@ def z3():
     with open('ru-en.txt', 'w', encoding='utf-8') as f:
         for ru_word, en_words in sorted_dict.items():
             f.write(f"{ru_word} - {', '.join(en_words)}\n") # запись новых строк, "join" объединяет в строку, "\n"- новая строка
-print(z3())
+z3()

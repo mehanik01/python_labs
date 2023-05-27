@@ -5,33 +5,37 @@ import csv
 def z1():
     os.mkdir('obrabotka1')
 
-    for filename in os.listdir("C:/Users/baydu/python/lab9"): #обход всех файлов
+    for filename in os.listdir("C:/python_labs/img"): #обход всех файлов
         if filename.endswith('.jpg') or filename.endswith('.png'):
-            image = Image.open(os.path.join("C:/Users/baydu/python/lab9", filename))
+            image = Image.open(os.path.join("C:/python_labs/img", filename))
             filtered_image = image.filter(ImageFilter.SHARPEN)
             new_name = "obrabotka1/new3_" + filename
             filtered_image.save(new_name)
-print(z1())
+z1()
 
 def z2():
     os.mkdir('obrabotka2')
 
-    for filename in os.listdir("C:/Users/baydu/python/lab9"):
+    for filename in os.listdir("C:/python_labs/img"):
         if filename.endswith('.jpg'):
-            image = Image.open(os.path.join("C:/Users/baydu/python/lab9", filename))
+            image = Image.open(os.path.join("C:/python_labs/img", filename))
             filtered_image = image.filter(ImageFilter.SHARPEN)
             new_name = "obrabotka2/new3_" + filename
             filtered_image.save(new_name)
-print(z2())
+z2()
 
 def z3():
-    with open('data.csv') as file:
-        reader = csv.reader(file)
-        summ = 0
-        print("Нужно купить:")
+    file_path ="C:/python_labs/123.csv"
+    with open(file_path) as f:
+        total_cost = 0
+        print('Нужно купить: ')
+        reader = csv.reader(f, delimiter=';')
         for row in reader:
-            product, number, price = row
-            summ += int(number) * int(price)
-            print(f"{product} - {number} шт. за {price} руб.")
-        print(f"Итоговая сумма: {summ} руб.")
-print(z3())
+            product = row[0]
+            quantity = int(row[1])
+            prise = int(row[2])
+            cost = quantity * prise
+            total_cost += cost
+            print(f'{product} - {quantity} шт за {prise} руб')
+    print(f'Итоговая стоимость: {total_cost} руб')
+z3()

@@ -12,13 +12,10 @@ def z1():
             print(f"Ресторан {self.name} открыт!")
 
     newRestaurant = Restaurant("Italiani", "Итальянская")   # экземпляр
-    print(newRestaurant.name)   # вывод 2х атрибутов по отдельности
-    print(newRestaurant.kitchen)
 
     newRestaurant.describe_restaurant() # вызов методов
     newRestaurant.open_restaurant()
-print(z1())
-
+z1()
 
 def z2():
     class Restaurant:
@@ -47,7 +44,7 @@ def z2():
     restaurant1.describe_restaurant()
     restaurant2.describe_restaurant()
     restaurant3.describe_restaurant()
-print(z2())
+z2()
 
 def z3():
     class Restaurant:
@@ -68,8 +65,6 @@ def z3():
             self.number1 = number2
 
     newRestaurant = Restaurant("Italiani", "Итальянская", 3.2)
-    print(newRestaurant.name)
-    print(newRestaurant.kitchen)
 
     newRestaurant.describe_restaurant()
     newRestaurant.open_restaurant()
@@ -77,4 +72,4 @@ def z3():
     number2 = float(input("Введите вашу оценку для ресторана: "))
     newRestaurant.update_rating(number2)
     newRestaurant.describe_restaurant()
-print(z3())
+z3()
