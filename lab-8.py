@@ -24,17 +24,17 @@ def z2():
 print(z2())
 
 def z3():
-    image3 = Image.open("bobik.jpg")
+    image3 = Image.open("img/bobik.jpg")
     crop_image3 = image3.crop((45, 45, 400, 400))
     name = input('Кого Вы хотите поздравить? ')
     draw = ImageDraw.Draw(crop_image3)
 
-    font = ImageFont.truetype('RubikWetPaint-Regular.ttf', 25)
+    font = ImageFont.truetype('img/RubikWetPaint-Regular.ttf', 25)
     text_color = (230,193,91)
     text_position = (70, 300)
 
     text = name + ', поздравляю!'
     draw.text(text_position, text, font=font, fill=text_color)
-    crop_image3.save('postcard.png')
+    crop_image3.save('img/postcard.png')
 print(z3())
 
